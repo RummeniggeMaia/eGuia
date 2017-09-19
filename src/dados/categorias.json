@@ -1,0 +1,19 @@
+{
+    categorias:[
+        {
+            icone:'',
+            descricao:'Academias',
+            tag:'academia',
+        },
+        {
+            icone:'',
+            descricao:'Bares',
+            tag:'bar',
+        },
+        {
+            icone:'',
+            descricao:'Açougues',
+            tag:'acougue',
+        }
+    ]
+}
