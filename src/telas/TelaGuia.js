@@ -1,20 +1,32 @@
 import React from 'react';
 import {
     View,
+    FlatList,
     Text,
-    Button,
-    StatusBar,
+    Image,
+    TouchableOpacity
 } from 'react-native';
 
 export default class TelaGuia extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return(
             <View>
-                <Button
-                    title="Go"
-                    onPress={() => this.props.navigation.navigate('Empresa')}/>
-                {console.log(this.props.navigation.state.key)}
+                <FlatList
+                    data={this.props.empresas}
+                    renderItem={({item}) => {
+                        return(
+                            <TouchableOpacity style={{backgroundColor: 'white', alignItems: 'center'}}
+                                onPress={() => this.props.selecionarEmpresa(item)}>
+                                <Image style={{marginTop: 10}}
+                                    source={item.logo}/>
+                            </TouchableOpacity>
+                        );
+                    }}/>
             </View>
         );
     }

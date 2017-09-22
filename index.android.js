@@ -1,11 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
  import React from 'react';
  import {
+     View,
+     Text,
      Image,
      StatusBar,
      AppRegistry,
@@ -13,55 +9,26 @@
      Alert
  } from 'react-native';
  import {
-    DrawerNavigator, StackNavigator, DrawerItems, NavigationActions
+    DrawerNavigator,
+    StackNavigator,
+    DrawerItems
  } from 'react-navigation';
- import { MenuContext } from 'react-native-menu';
+ import {
+     MenuContext
+ } from 'react-native-menu';
  import {
      Icon,
  } from 'react-native-elements';
 
-import MenuApp from './src/comum/MenuApp';
-import TelaGuia from './src/telas/TelaGuia';
-import TelaEmpresa from './src/telas/TelaEmpresa';
+import EGuia from './src/telas/EGuia';
 
-const StackNav = StackNavigator({
-    Guia: {
-        screen: TelaGuia,
-        navigationOptions: ({navigation}) => {
-            return {
-                title: "eGuia Comercial",
-                headerRight: <MenuApp navigation={navigation}/>,
-                headerLeft: <Icon name='bars'
-                                    type='font-awesome'
-                                    color='white'
-                                    style={{marginLeft: 10}}
-                                    onPress={() => navigation.navigate('DrawerOpen')}/>
-            }
-        }
-    },
-    Empresa: {
-        screen: TelaEmpresa,
-        navigationOptions: ({navigation}) => {
-            return {
-                title: "Dados da Empresa",
-                headerRight: <MenuApp navigation={navigation}/>
-            }
-        }
-    }
-}, {
-    navigationOptions: {
-        headerTintColor: 'white',
-        headerStyle: {
-            backgroundColor: '#0000FF'
-        },
-    }
-});
+import categorias from './src/dados/categorias';
 
-var jsonCategorias = require('eGuia/src/dados/categorias.json');
+var jsonCategorias = categorias.dados;
 let listaCategorias = {};
 Object.values(jsonCategorias.categorias).map((categoria) => {
     listaCategorias[categoria.tag] = {
-        screen: TelaGuia,
+        screen: EGuia,
         navigationOptions: {
             drawerLabel: categoria.descricao,
             drawerIcon: ({ tintColor }) => (
@@ -77,7 +44,17 @@ const DrawerNav = DrawerNavigator(listaCategorias, {
     contentComponent: (props) => {
         return(
             <ScrollView>
-                <Image source={require('eGuia/src/imagens/logo.jpg')} />
+                <View style={{padding: 10, backgroundColor: 'blue'}}>
+                    <Image source={require('eGuia/src/imagens/logomarca64.png')} />
+                    <View style={{height: 10}}></View>
+                    <Text style={{fontSize: 16, fontWeight: 'bold', color: 'white'}}>
+                        eGuia €omercial
+                    </Text>
+                    <Text style={{fontSize: 12, color: 'white'}}>
+                        Cruzeta - RN
+                    </Text>
+                </View>
+                <Text style={{fontSize: 16, fontWeight: 'bold', color: '#d3d3d3', marginLeft: 10}}>Categorias</Text>
                 <DrawerItems {...props} />
             </ScrollView>
         );

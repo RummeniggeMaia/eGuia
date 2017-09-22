@@ -11,7 +11,6 @@ import Menu,{
     MenuOption,
     MenuTrigger
 } from 'react-native-menu';
-
 import {
     Icon,
     FormLabel,
@@ -29,7 +28,7 @@ export default class MenuApp extends React.Component {
 
     funcaoMenu(menuItem) {
         if (menuItem == 0) {
-            Alert.alert('Desenvolvedores: Rummenigge, Jaedson');
+            Alert.alert('Desenvolvedores', '\t* Rummenigge Maia\n\t* Jaedson Bruno\n\nApoio:\n\t* Flavio Fotógrafo');
         } else if (menuItem == 1) {
             Alert.alert('Saindo...');
         }
@@ -54,21 +53,8 @@ export default class MenuApp extends React.Component {
                         <Icon name='question-circle'
                             size={16}
                             type='font-awesome'
-                            color='#000000'/>
-                        <FormLabel labelStyle={styles.form_label}>Sobre</FormLabel>
-                    </MenuOption>
-                    <MenuOption>
-                        <Divider/>
-                    </MenuOption>
-                    <MenuOption
-                            style={styles.menu_option}
-                            value={1}
-                            renderTouchable={renderTouchable}>
-                        <Icon name='sign-out'
-                            size={16}
-                            type='font-awesome'
-                            color='#000000'/>
-                        <FormLabel labelStyle={styles.form_label}>Fechar</FormLabel>
+                            color='blue'/>
+                        <Text style={{marginLeft: 10, fontSize: 16}}>Sobre</Text>
                     </MenuOption>
                 </MenuOptions>
             </Menu>
