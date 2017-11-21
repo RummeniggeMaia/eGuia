@@ -17,6 +17,7 @@ export default class TelaGuia extends React.Component {
         return(
             <View>
                 <FlatList
+                    key="empresas"
                     data={this.props.empresas}
                     renderItem={({item}) => {
                         return(

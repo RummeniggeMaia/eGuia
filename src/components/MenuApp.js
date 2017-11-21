@@ -4,7 +4,8 @@ import {
     Text,
     TouchableOpacity,
     AsyncStorage,
-    Alert
+    Alert,
+    BackHandler
 } from 'react-native';
 import Menu,{
     MenuOptions,
@@ -28,9 +29,9 @@ export default class MenuApp extends React.Component {
 
     funcaoMenu(menuItem) {
         if (menuItem == 0) {
-            Alert.alert('Desenvolvedores', '\t* Rummenigge Maia\n\t* Jaedson Bruno\n\nApoio:\n\t* Flavio Fotógrafo');
+            Alert.alert('Desenvolvedor:', '\t* RJsofts');
         } else if (menuItem == 1) {
-            Alert.alert('Saindo...');
+            BackHandler.exitApp();
         }
     }
 
@@ -42,7 +43,8 @@ export default class MenuApp extends React.Component {
                 <MenuTrigger renderTouchable={renderTouchable}>
                     <Icon name='ellipsis-v'
                         type='font-awesome'
-                        color='white'/>
+                        color='white'
+                        style={{margin: 10}}/>
                 </MenuTrigger>
                 <MenuOptions>
                     <MenuOption
@@ -55,6 +57,17 @@ export default class MenuApp extends React.Component {
                             type='font-awesome'
                             color='blue'/>
                         <Text style={{marginLeft: 10, fontSize: 16}}>Sobre</Text>
+                    </MenuOption>
+                    <MenuOption
+                            style={styles.menu_option}
+                            value={1}
+                            renderTouchable={renderTouchable}>
+
+                        <Icon name='sign-out'
+                            size={16}
+                            type='font-awesome'
+                            color='blue'/>
+                        <Text style={{marginLeft: 10, fontSize: 16}}>Sair</Text>
                     </MenuOption>
                 </MenuOptions>
             </Menu>

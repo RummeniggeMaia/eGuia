@@ -20,12 +20,12 @@ export default class MenuTopo extends React.Component {
     render() {
         return(
             <View style={styles.menu_topo}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={this.props.funcao}>
                     <Icon name={this.props.icone}
                         type='font-awesome'
                         color='white'
-                        style={styles.icone}
-                        onPress={this.props.funcao}/>
+                        style={styles.icone}/>
                 </TouchableOpacity>
                 <Text style={styles.menu_topo_titulo}>{this.props.titulo}</Text>
                 <MenuApp />

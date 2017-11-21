@@ -83,7 +83,7 @@ export default class TelaEmpresa extends React.Component {
                 { viewFuncionamento }
                 { viewOrganizacao }
                 { viewEntrega }
-                <TouchableOpacity onPress={() => alert('Mostrar Mapa')}>
+                <TouchableOpacity onPress={() => this.props.mostrarMapa() }>
                     {this.gerarView('map-marker', 'Google Maps', 'red')}
                 </TouchableOpacity>
                 <View style={styles.container, {height: 50}}></View>
